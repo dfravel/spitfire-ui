@@ -1,0 +1,19 @@
+.radio-button-container {
+    @apply bg-white rounded-lg shadow-md cursor-pointer py-1 px-4 w-full mb-2 border;
+}
+
+.radio-button-container.active {
+    @apply bg-blue-700 text-white;
+}
+
+.radio-button-container:hover {
+    @apply bg-blue-200 text-blue-800 border border-blue-700;
+}
+
+.radio-button-container:active {
+    @apply bg-green-700 text-white;
+}
+
+.radio-button-container:focus {
+    @apply outline-none;
+}

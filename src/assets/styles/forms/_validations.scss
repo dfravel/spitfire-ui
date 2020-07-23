@@ -1,0 +1,18 @@
+.required {
+    @apply text-red-600;
+}
+
+.error {
+    @apply text-sm text-red-600;
+}
+
+
+.invalid {
+    input {
+        @apply border border-red-600 bg-red-100;
+    }
+
+    select {
+        @apply border border-red-600 bg-red-100;
+    }
+}

@@ -1,0 +1,32 @@
+/* purgecss start ignore */
+.pagination {
+    @apply inline-block;
+}
+
+
+.pagination li a {
+    @apply bg-white border border-blue-600;
+}
+
+
+.pagination li.active a {
+    @apply text-white bg-blue-600;
+
+}
+
+.pagination li.disabled {
+    @apply cursor-not-allowed;
+}
+
+.pagination li.disabled a {
+    @apply text-blue-600 bg-gray-200 cursor-not-allowed;
+
+}
+
+
+.pagination li.page-number {}
+.pagination li.first {}
+.pagination li.last {}
+.pagination li.previous {}
+.pagination li.next {}
+/* purgecss end ignore */

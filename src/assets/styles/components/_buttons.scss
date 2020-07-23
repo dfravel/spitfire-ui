@@ -1,0 +1,97 @@
+/* purgecss start ignore */
+.btn {
+    @apply py-2 px-4 shadow-md no-underline rounded-full font-sans font-semibold text-sm border;
+}
+
+.btn-form-submit {
+    @apply block bg-blue-400 text-white text-lg py-2 px-6 rounded;
+}
+
+.btn-form-submit:hover {
+    @apply bg-blue-800
+}
+
+.btn-primary {
+    @apply bg-red-600 text-white border-red-600;
+}
+
+.btn-secondary {
+    @apply bg-blue-400 text-white border-blue-400;
+}
+
+.btn-secondary:hover {
+    @apply bg-blue-500 text-white;
+}
+
+.btn-primary:hover {
+    @apply text-red-600 bg-white;
+}
+
+.btn-table-edit {
+    @apply border border-red-300 text-red-800 mt-2 text-xs;
+}
+
+.btn-table-edit:hover {
+    @apply border border-red-300 text-white bg-red-600;
+}
+
+.btn-table-delete {
+    @apply border border-gray-300 text-gray-800 mt-2 text-xs;
+}
+
+.btn-table-delete:hover {
+    @apply bg-gray-800 text-white;
+}
+
+.btn-table-view {
+    @apply border border-blue-300 text-blue-800 mt-2 text-xs;
+}
+
+.btn-table-view:hover {
+    @apply border border-blue-300 text-white bg-blue-600;
+}
+
+.btn-table-drilldown {
+    @apply border border-orange-300 bg-orange-300 text-black mt-2;
+}
+
+.btn-table-drilldown:hover {
+    @apply border border-black bg-black text-white mt-2;
+}
+
+
+
+.btn-delete, .btn-add {
+    @apply bg-white text-red-600 border-red-600 cursor-pointer;
+}
+
+.btn-add:hover {
+    @apply text-white bg-red-400 cursor-pointer;
+}
+
+
+.btn-home-button {
+    @apply inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2
+}
+
+.btn-home-button:hover {
+    @apply bg-blue-500 text-white;
+}
+
+.btn-listing-add {
+    @apply bg-white text-blue-500;
+}
+
+.btn-listing-add:hover {
+    @apply bg-orange-500 text-white;
+}
+
+.btn-listing-edit {
+    @apply bg-white text-orange-500;
+}
+
+.btn-listing-edit:hover {
+    @apply bg-blue-500 text-white;
+}
+
+/* purgecss end ignore */

@@ -1,0 +1,58 @@
+.listing-card {
+    @apply bg-white rounded shadow mb-16 border-t-8 border-blue-600;
+
+    .listing-title-container {
+        @apply text-left border-b border-blue-600 mb-4 bg-gray-200 py-2 flex flex-row align-baseline justify-between;
+    }
+
+    .listing-title {
+        @apply text-blue-800 text-2xl px-4;
+    }
+
+    .listing-title-button {
+        @apply mt-1;
+    }
+
+    .listing-detail-container {
+        @apply px-4 py-2;
+    }
+}
+
+
+.home-box {
+    @apply max-w-sm rounded overflow-hidden shadow-lg bg-white border-t-8 border-blue-600 mb-4;
+
+    &.inactive {
+        @apply text-gray-400;
+
+        a {
+            @apply text-gray-400 cursor-not-allowed;
+
+        }
+    }
+
+    //Home Page - Build Status, Inspection Status, and Ship Deliver-Frankfurt Icons 
+    &.build-inspect-ship {
+        @apply border-gray-700;
+    }
+
+    // Home Page - Ship-Deliver Post Icon
+    &.ship-deliver-post {
+        @apply border-purple-600;
+    }
+
+    //Home Page - Ops/Maintenance Icon
+    &.ops-maint {
+        @apply border-yellow-400;
+    }
+
+    // Home Page - End of Life Icon
+    &.end-of-life {
+        @apply border-black;
+    }
+
+}
+
+.home-box:hover {
+    @apply bg-gray-100;
+}

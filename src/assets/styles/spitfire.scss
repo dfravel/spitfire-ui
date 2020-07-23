@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import "./shared/header";
+@import "./shared/notificationBar";
+@import "./components/buttons";
+@import "./components/tables";
+@import "./components/pagination";
+@import "./components/boxes";
+
+@import "./forms/radioButtons";
+@import "./forms/validations";
+
+
+// form validataions

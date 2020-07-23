@@ -1,0 +1,103 @@
+# GitLab CI Docker Image for spitfire-ui
+#image: node:latest
+image: node:12.14
+
+#Stages
+stages:
+  - build
+  - deploy
+
+# Configuration variables
+variables:
+  # Environment Variables now set in CI/CD Variables
+  #APP_NAME: "spitfire-ui" # ElasticBeanstalk Application Name
+  #S3_SAVE_BUCKET: "gitlab-code-storage-01" # S3 bucket for saving zip file
+  #S3_ZIP_DIR: "spitfire-ui-01-zip-files" # S3 folder to upload built app
+  #S3_WEB_HOST: "spitfire-ui-01" # S3 bucket for web hosting
+  #S3_ZIP_DIR: "spitfire-ui-02-zip-files" # S3 folder to upload built app
+  #S3_WEB_HOST: "spitfire-ui-02" # S3 bucket for web hosting
+
+# Job: Build
+# Installs npm packages, transpiles ES6 -> ES5
+# Passes node_modules/, dist/ onto next steps using artifacts
+build:
+  stage: build
+  script:
+    - echo "Starting Build Script"
+    - echo "npm install :"
+    - npm install -y
+
+    - echo "List versions, path, & directory contents"
+    - npm -v
+    - nodejs -v
+    - pwd
+    - ls -a
+    #- ls -la -F
+
+    - echo "npm run build :"
+    - npm run build
+  cache:
+    paths:
+      - node_modules/
+  artifacts:
+    when: on_success
+    paths:
+      - dist/
+  only:
+    - master
+
+# Job: Deploy
+# Zips the contents of our built application, uploads to S3
+# Configures a new EB version and switches to that version
+deploy:
+  image: python:latest
+  stage: deploy
+  script:
+    - echo "Starting Deploy Script"
+
+    - echo "Installing PIP needed for AWSCLI"
+    - pip install awscli
+
+    - echo "Installing ZIP"
+    - apt-get update
+    - apt-get install -y zip
+
+    - echo "List curent path & contents of dist folder"
+    - pwd
+    - ls -a dist
+
+    - echo "Set unique zip file name with time-date stamp"
+    - ts=`date +%s`
+    - fn="$APP_NAME-$ts.zip"
+    - echo "fn = $fn"
+
+    - echo "Zip dist directory"
+    - zip -r $fn dist
+
+    - echo "Contents of $fn :"
+    - zipinfo $fn
+
+    - echo "List directory contents for debug check"
+    - pwd
+    - ls -alh *.zip
+
+    - echo "Set AWS configuration parameters"
+    - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+    - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+    - aws configure set region $AWS_REGION
+
+    - echo "List location parameters"
+    - echo "S3_SAVE_BUCKET = $S3_SAVE_BUCKET"
+    - echo "S3_ZIP_DIR = $S3_ZIP_DIR"
+    - echo "S3_WEB_HOST = $S3_WEB_HOST"
+
+    - echo "Copying zip file to file save S3 Bucket"
+    - aws s3 cp $fn "s3://$S3_SAVE_BUCKET/$S3_ZIP_DIR/$fn"
+
+    - echo "Create /dist folder to website hosting S3 Bucket"
+    - aws s3 rm --recursive "s3://$S3_WEB_HOST/"
+    - aws s3 cp --recursive ./dist/ "s3://$S3_WEB_HOST/"
+
+    - echo "Deploy Script Done"
+  only:
+    - master

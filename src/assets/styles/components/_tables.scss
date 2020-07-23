@@ -1,0 +1,137 @@
+/* purgecss start ignore */
+table {
+    @apply text-left w-full border-collapse;
+
+    th {
+        @apply py-4 px-6 bg-gray-300 font-bold uppercase text-sm text-gray-800 border-b border-gray-400;
+
+        &.active {
+            @apply text-white;
+
+            .arrow {
+                @apply opacity-100
+            }
+          }
+
+          .arrow {
+            display: inline-block;
+            vertical-align: middle;
+            width: 0;
+            height: 0;
+            margin-left: 5px;
+            opacity: 0.66;
+          }
+
+          .arrow.asc {
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 4px solid #fff;
+          }
+
+          .arrow.dsc {
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 4px solid #fff;
+          }
+    }
+
+    tr {
+
+        &.listTable:hover {
+            @apply bg-gray-200;
+        }
+
+        td {
+            @apply border px-4 py-2 align-top;
+
+            > .secondary-data {
+                @apply py-1 text-xs text-gray-600
+            }
+
+            > span {
+                @apply py-2 px-4 shadow-md no-underline rounded-full font-sans font-semibold text-sm border;
+
+                &.new {
+                    @apply bg-green-200;
+                }
+
+                &.ordered {
+                    @apply bg-blue-200;
+                }
+
+                &.delayed {
+                    @apply bg-red-200;
+                }
+
+                &.completed {
+                    @apply bg-indigo-200;
+                }
+
+                &.in-process {
+                    @apply bg-yellow-200
+                }
+
+                &.data-required {
+                    @apply bg-orange-200
+                }
+
+                &.shipper {
+                    @apply bg-orange-300;
+                }
+
+                &.mid-build-inspection {
+                    @apply bg-indigo-300;
+                }
+
+                &.in-production {
+                    @apply bg-purple-300;
+                }
+
+                &.in-transit-frankfurt {
+                    @apply bg-yellow-300;
+                }
+
+                &.accepted-on-hand-frankfurt {
+                    @apply bg-orange-300;
+                }
+
+                &.on-hand-gemershein {
+                    @apply bg-green-300;
+                }
+
+                &.accepted-at-post {
+                    @apply bg-teal-300;
+                }
+
+                &.rejected-frankfurt {
+                    @apply bg-red-300;
+                }
+
+                &.shipper {
+                    @apply bg-orange-300;
+                }
+
+                &.in-transit-post {
+                    @apply bg-gray-300;
+                }
+
+                &.operational {
+                    @apply bg-orange-300;
+                }
+
+                &.non-operational {
+                    @apply bg-pink-300;
+                }
+
+                &.retired {
+                    @apply bg-gray-300;
+                }
+
+                &.manufacturer {
+                    @apply bg-purple-200
+                }
+            }
+        }
+    }
+}
+/* purgecss end ignore */

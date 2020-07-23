@@ -1,0 +1,21 @@
+.nav-link {
+    @apply no-underline text-white opacity-50 flex items-center py-2 border-b border-transparent;
+}
+
+.nav-link.router-link-exact-active {
+    @apply no-underline opacity-100 flex items-center py-2 border-b border-blue-700 text-blue-700;
+}
+
+.nav-link:hover {
+    @apply opacity-100;
+}
+
+@screen md {
+    .nav-link {
+        @apply text-gray-500 opacity-100;
+    }
+
+    .nav-link:hover {
+        @apply text-gray-800 border-gray-700;
+    }
+}
